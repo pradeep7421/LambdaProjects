@@ -1,7 +1,4 @@
-package com.ps.lambda.lecture1;
-
-import com.ps.lambda.lecture1.PracticeInterface.SquareInterFace;
-import com.ps.lambda.lecture1.PracticeInterface.SumInterf;
+package com.ps.lambda.lecture1.PracticeInterface;
 
 public class SumInterfImpl {
 

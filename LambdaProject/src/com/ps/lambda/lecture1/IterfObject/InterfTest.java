@@ -1,11 +1,6 @@
-package com.ps.lambda.lecture1;
+package com.ps.lambda.lecture1.IterfObject;
 
-import com.ps.lambda.lecture1.IterfObject.AbsInterf;
-import com.ps.lambda.lecture1.IterfObject.AbsInterfImpl;
-import com.ps.lambda.lecture1.IterfObject.Interf;
-import com.ps.lambda.lecture1.IterfObject.TestInterfImpl;
-
-public class LambdaStart {
+public class InterfTest {
 	
 	public static void main(String[] args) {
 //    First Approach of making interface object by implementing interface
@@ -13,7 +8,7 @@ public class LambdaStart {
 		
 //      Interf interf = new Interf() ; interface object is not possible to create
 //		AbsInterf absInterf = new AbsInterf(); //abstract class object is not possible to create
-		Interf interf = new TestInterfImpl();// As TestInterf class implements Interface Interf and m1() is implemented in TestInterf
+		Interf interf = new InterfImpl();// As Interf class implements Interface Interf and m1() is implemented in Interf
 		                                 //,then only object of Interf is created 
 		Interf interf2 = new AbsInterfImpl();//Interface Interf implemmented by Abstract AbsInterf class 
                                              //which is  extended by AbsInterf then only Interface object gets

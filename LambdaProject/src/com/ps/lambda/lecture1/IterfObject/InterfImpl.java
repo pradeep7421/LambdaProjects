@@ -1,6 +1,6 @@
 package com.ps.lambda.lecture1.IterfObject;
 
-public class TestInterfImpl implements Interf{
+public class InterfImpl implements Interf{
 
 	@Override
 	public void m1() {
