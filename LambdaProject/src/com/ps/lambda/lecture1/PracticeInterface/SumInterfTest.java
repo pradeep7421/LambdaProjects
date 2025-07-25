@@ -1,6 +1,6 @@
 package com.ps.lambda.lecture1.PracticeInterface;
 
-public class SumInterfImpl {
+public class SumInterfTest {
 
 	public static void main(String[] args) {
 		//Lambda expression with void returnType and passing argument as parameter
