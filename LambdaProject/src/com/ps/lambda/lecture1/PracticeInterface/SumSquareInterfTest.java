@@ -34,9 +34,19 @@ public class SumSquareInterfTest {
 		
 		//By using lambda exp without variable type in parameter without return keyword 
 		SumInterf sumInterf4 = (a,b)->(a+b);
-		System.out.println(sumInterf4.sum(1, 0));	
-				
+		System.out.println(sumInterf4.sum(1, 0));
 		
+		InterfSquareIt iSqIt = a->(a*a);
+		System.out.println("InterfSquareIt result - "+iSqIt.squareIt(10));
+		System.out.println("InterfSquareIt result - "+iSqIt.squareIt(20));	
+		
+		InterfStringlength intstrlen = a-> a.length();
+		InterfStringlength intstrlen2 = a-> (a.toUpperCase()+" Singh").length();
+		System.out.println("InterfStringlength - "+intstrlen.getLength("Pradeep"));
+		System.out.println("InterfStringlength to uppercase length - "+intstrlen2.getLength("Pradeep"));
+		
+		InterfStringUpperCase strUpperCase = a->a.toUpperCase();
+		System.out.println("InterfStringUpperCase toUpperCase method- "+strUpperCase.toUpperCase("pradeep singh kushwaha"));
 	}
 
 }
