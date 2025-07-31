@@ -1,7 +1,9 @@
 package com.ps.lambda.lecture3.StreamPractice;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StreamApiPractice1 {
@@ -36,12 +38,12 @@ public static void main(String[] args) {
 //	 List<Long> emps23 = empList.stream().map(Employee::getEmpSalary).collect(Collectors.toList());// map(e->e.getEmpSalary()) can also be used
 //	 emps23.forEach(System.out::println);
 //	 
-//	 //Collect in map each employee salary according to department
-//	Map<String,Long> mapEmpNameSalary = empList.stream().collect(Collectors.toMap(emp->emp.getEmpName(),emp->emp.getEmpSalary()));
+//	 //Collect in map each employee salary according to name with duplicate keys replacement add employee 15  and 16 in employee class method
+//	Map<String,Long> mapEmpNameSalary = empList.stream().collect(Collectors.toMap(emp->emp.getEmpName(),emp->emp.getEmpSalary(), (existingVal, newVal) -> newVal ));
 //	System.out.println("mapEmpNameSalary - "+mapEmpNameSalary);
 //	mapEmpNameSalary.forEach((k,v)->System.out.println("key is -"+ k+" , value is-"+v));
 //	 
-//	 //Collect in map each employee name with salary 
+	 //Collect in map each employee name with salary 
 //		Map<String,Long> mapEmpSal = empList.stream().collect(Collectors.toMap(emp->emp.getEmpName(),emp->emp.getEmpSalary()));
 //		System.out.println("mapEmpSal- "+mapEmpSal);
 //		
@@ -56,8 +58,49 @@ public static void main(String[] args) {
 //		Map<String,List<Employee>> map2 = empList.stream().collect(Collectors.groupingBy(e->e.getEmpDeptName()));//groupingBy(Employee::getEmpSalary)
 //		System.out.println("map2- "+map2);
 //		
-//		 //Group the employee according to Salary
+		 //Group the employee according to Salary
 //		Map<Long,List<Employee>> map3 = empList.stream().collect(Collectors.groupingBy(e->e.getEmpSalary()));//groupingBy(Employee::getEmpSalary)
 //		System.out.println("map3- "+map3);
+	
+//	Map<Long,List<String>> map4 = empList.stream().filter(e->e.getEmpSalary()>50000).collect(Collectors.groupingBy(e->e.getEmpSalary(), Collectors.mapping(e -> e.getEmpName(), Collectors.toList())));//groupingBy(Employee::getEmpSalary)
+//    System.out.println(map4);
+	//Count the number of employee according to department
+//	Map<String, Long> countOfEmps =empList.stream().collect(Collectors.groupingBy(Employee::getEmpDeptName,Collectors.counting().));
+//    System.out.println(countOfEmps);
+    
+//    Map<String, Integer> countOfEmps2 = empList.stream()
+//    	    .collect(Collectors.groupingBy(
+//    	        Employee::getEmpDeptName,
+//    	        Collectors.collectingAndThen(Collectors.counting(), Long::intValue)
+//    	    ));
+//    System.out.println(countOfEmps2);
+    
+//    long count = empList.stream().filter(e->e.getEmpDeptName()== "HR").count();
+//    System.out.println(count);
+
+//	Find employee with second highest salary 
+//	List<Employee> secondHighest = empList.stream()
+//		    .sorted().collect(Collectors.toList());
+////		    .skip(1)
+////		    .findFirst().get();
+//	System.out.println(secondHighest);
+	
+	Optional<Employee> secondLowest = empList.stream()
+		    .sorted(Comparator.comparing(Employee::getEmpSalary))
+		    .skip(1)
+		    .findFirst();
+	System.out.println(secondLowest.get());
+	
+	Optional<Employee> secondHighest = empList.stream()
+		    .sorted(Comparator.comparing(Employee::getEmpSalary).reversed())
+		    .skip(1)
+		    .findFirst();
+	System.out.println(secondHighest.get());
+	
+//	List<Integer> l = Arrays.asList(1,5,9,1,9,2,6,7,2);
+//	System.out.println(l);
+//	List sorted = l.stream().sorted().collect(Collectors.toList());
+//	List sortedReversed = l.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+//	System.out.println("sorted - "+sorted +"\n"+"sortedReversed - "+sortedReversed);
 }
 }
