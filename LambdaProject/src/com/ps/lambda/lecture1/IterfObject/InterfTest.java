@@ -36,5 +36,7 @@ public class InterfTest {
 			
 			//Second Concept without using curly bracket {} if there is only single line of code for implemented method
 			Interf interfLambda2 = ()-> System.out.println("Getting interface object by lambda expression");
+
+
 	}
 }
